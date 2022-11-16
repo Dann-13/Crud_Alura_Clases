@@ -37,11 +37,8 @@ const table = document.querySelector('[data-table]');
 // Delete - DELETE
 
 //fetch Api
-const lista_cliente = () => {
-    return fetch("http://localhost:3000/perfil").then( response => {
-        return response.json();
-});
-}
+const lista_cliente = () => fetch("http://localhost:3000/perfil").then( response => response.json());
+
 lista_cliente().then((data) => {
     console.log(data);
     data.forEach((perfil) => {
