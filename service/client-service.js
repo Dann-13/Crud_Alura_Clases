@@ -36,21 +36,11 @@ const table = document.querySelector('[data-table]');
 // Update - PUT-PATCH
 // Delete - DELETE
 
+//fetch Api
 const lista_cliente = () => {
-    const promise = new Promise((resolve, reject) => {
-        const http = new XMLHttpRequest();
-        http.open('GET', 'http://localhost:3000/perfil');
-        http.send();
-        http.onload = () => {
-            const response = JSON.parse(http.response); //convertimos la respuesta del http ara obtener un objeto
-            if(http.status >= 400){
-                reject(response);
-            }else{
-                resolve(response); //si no hay error nos regresa la respuesta
-            }
-        }
-    })
-    return promise;
+    return fetch("http://localhost:3000/perfil").then( response => {
+        return response.json();
+});
 }
 lista_cliente().then((data) => {
     console.log(data);
